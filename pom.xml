@@ -10,7 +10,7 @@
     
     <packaging>jar</packaging>
     <groupId>org.webjars</groupId>
-    <artifactId>eventEmitter</artifactId>
+    <artifactId>EventEmitter</artifactId>
     <version>4.2.7-SNAPSHOT</version>
     <name>EventEmitter</name>
     <description>WebJar for EventEmitter</description>
@@ -19,18 +19,8 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <upstream.version>4.2.7</upstream.version>
-        <upstream.url>https://github.com/downloads/Wolfy87/EventEmitter/</upstream.url>
+        <upstream.url>https://raw.githubusercontent.com/Wolfy87/EventEmitter/v${upstream.version}</upstream.url>
         <destDir>${project.build.outputDirectory}/META-INF/resources/webjars/${project.artifactId}/${upstream.version}</destDir>
-        <!-- <requirejs>
-            {
-                "paths": {
-                    "eventEmitter": "eventEmitter"
-                },
-                "shim": {
-                    "eventEmitter": ["DEP_ID"]
-                }
-            }
-        </requirejs> -->
     </properties>
 
     <developers>
@@ -50,16 +40,46 @@
     </licenses>
 
     <scm>
-        <url>http://github.com/webjars/eventEmitter</url>
-        <connection>scm:git:https://github.com/webjars/eventEmitter.git</connection>
-        <developerConnection>scm:git:https://github.com/webjars/eventEmitter.git</developerConnection>
+        <url>http://github.com/webjars/EventEmitter</url>
+        <connection>scm:git:https://github.com/webjars/EventEmitter.git</connection>
+        <developerConnection>scm:git:https://github.com/webjars/EventEmitter.git</developerConnection>
         <tag>HEAD</tag>
     </scm>
     
    
     <build>
         <plugins>
-           
+           <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>wagon-maven-plugin</artifactId>
+                <version>1.0-beta-4</version>
+                <executions>
+                    <execution>
+                        <id>download-full-js</id>
+                        <phase>process-resources</phase>
+                        <goals>
+                            <goal>download-single</goal>
+                        </goals>
+                        <configuration>
+                            <url>${upstream.url}</url>
+                            <fromFile>EventEmitter.js</fromFile>
+                            <toDir>${destDir}</toDir>
+                        </configuration>
+                    </execution>
+                    <execution>
+                        <id>download-min-js</id>
+                        <phase>process-resources</phase>
+                        <goals>
+                            <goal>download-single</goal>
+                        </goals>
+                        <configuration>
+                            <url>${upstream.url}</url>
+                            <fromFile>EventEmitter.min.js</fromFile>
+                            <toDir>${destDir}</toDir>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
 
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
