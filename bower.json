@@ -1,0 +1,14 @@
+{
+  "name": "org.webjars.eventemitter",
+  "version": "4.2.7",
+  "authors": [
+    "Robert Silve <robert@silve.net>"
+  ],
+  "description": "WebJar for EventEmitter",
+  "main": "EventEmitter.min.js",
+  "license": "MIT",
+  "private": true,
+  "devDependencies": {
+    "eventEmitter": "~4.2.7"
+  }
+}
