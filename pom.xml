@@ -21,7 +21,7 @@
         <upstream.version>4.2.7</upstream.version>
         <upstream.url>https://raw.githubusercontent.com/Wolfy87/EventEmitter/v${upstream.version}</upstream.url>
         <destDir>${project.build.outputDirectory}/META-INF/resources/webjars/${project.artifactId}/${upstream.version}</destDir>
-		<requirejs>
+        <requirejs>
             {
                 "paths": {
                     "EventEmitter": "EventEmitter"
@@ -44,7 +44,7 @@
     <licenses>
         <license>
             <name>MIT</name>
-			<url>http://www.opensource.org/licenses/mit-license.php</url>
+            <url>http://www.opensource.org/licenses/mit-license.php</url>
             <distribution>repo</distribution>
         </license>
     </licenses>
