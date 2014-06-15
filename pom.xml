@@ -11,7 +11,7 @@
     <packaging>jar</packaging>
     <groupId>org.webjars</groupId>
     <artifactId>EventEmitter</artifactId>
-    <version>4.2.8-SNAPSHOT</version>
+    <version>4.2.7-1-SNAPSHOT</version>
     <name>EventEmitter</name>
     <description>WebJar for EventEmitter</description>
     <url>http://webjars.org</url>
@@ -21,6 +21,16 @@
         <upstream.version>4.2.7</upstream.version>
         <upstream.url>https://raw.githubusercontent.com/Wolfy87/EventEmitter/v${upstream.version}</upstream.url>
         <destDir>${project.build.outputDirectory}/META-INF/resources/webjars/${project.artifactId}/${upstream.version}</destDir>
+		<requirejs>
+            {
+                "paths": {
+                    "EventEmitter": "EventEmitter"
+                },
+                "shim": {
+                    "EventEmitter": { "exports": "EventEmitter" }
+                }
+            }
+        </requirejs>
     </properties>
 
     <developers>
